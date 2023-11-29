@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  postgresql:
+    container_name: postgresql_db
+    image: postgres:15.0
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      POSTGRES_USER: ${POSTGRESQL_USER}
+      POSTGRES_PASSWORD: ${POSTGRESQL_PASSWORD}
+      POSTGRES_MULTIPLE_DATABASES: tenant1,tenant2
+    ports:
+      - "${POSTGRESQL_LOCAL_PORT}:${POSTGRESQL_DOCKER_PORT}"
+    volumes:
+      - db:/var/lib/postgres
+      - ./src/main/resources/db/init:/docker-entrypoint-initdb.d
+volumes:
+  db:
