@@ -1,18 +1,22 @@
 package com.learning.config.tenant;
 
+import com.learning.dto.TenantDTO;
+import lombok.experimental.UtilityClass;
+
+@UtilityClass
 public class TenantContext {
+    public static final String DEFAULT_TENANT_ID = "public";
+    private static final ThreadLocal<TenantDTO> currentTenant = new ThreadLocal<>();
 
-    private static final ThreadLocal<String> CURRENT_TENANT = new ThreadLocal<>();
-
-    public static String getCurrentTenant() {
-        return CURRENT_TENANT.get();
+    public static TenantDTO getCurrentTenant() {
+        return currentTenant.get();
     }
 
-    public static void setCurrentTenant(String tenant) {
-        CURRENT_TENANT.set(tenant);
+    public static void setCurrentTenant(TenantDTO tenant) {
+        currentTenant.set(tenant);
     }
 
-    public void unload() {
-        CURRENT_TENANT.remove();
+    public static void clear() {
+        currentTenant.remove();
     }
 }

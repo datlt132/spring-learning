@@ -1,2 +1,0 @@
-psql -U postgres -tc "SELECT 1 FROM pg_database WHERE datname = 'tenant1'" | grep -q 1 | psql -U postgres -c "CREATE DATABASE tenant1"
-psql -U postgres -tc "SELECT 1 FROM pg_database WHERE datname = 'tenant2'" | grep -q 1 | psql -U postgres -c "CREATE DATABASE tenant2"
