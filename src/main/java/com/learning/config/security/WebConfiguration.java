@@ -1,4 +1,4 @@
-package com.learning.config.tenant;
+package com.learning.config.security;
 
 import com.learning.interceptor.TenantRequestInterceptor;
 import lombok.RequiredArgsConstructor;

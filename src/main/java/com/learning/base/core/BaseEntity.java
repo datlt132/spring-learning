@@ -1,9 +1,6 @@
-package com.learning.base;
+package com.learning.base.core;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
-import jakarta.persistence.Transient;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,7 +15,7 @@ import java.util.Date;
 public class BaseEntity implements Serializable {
 
     @Id
-    @GeneratedValue(generator = "seq_gen")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
 
     protected boolean active;
@@ -32,4 +29,14 @@ public class BaseEntity implements Serializable {
     protected String creator;
     @Transient
     protected String updater;
+
+    @PrePersist
+    public void onPrePersist() {
+        this.createdTime = new Date();
+    }
+
+    @PreUpdate
+    public void onPreUpdate() {
+        this.updatedTime = new Date();
+    }
 }

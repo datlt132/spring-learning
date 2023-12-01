@@ -1,6 +1,6 @@
 package com.learning.service;
 
-import com.learning.config.tenant.FlywayBuilder;
+import com.learning.config.flyway.FlywayBuilder;
 import com.learning.dto.TenantDTO;
 import com.learning.entity.TenantEntity;
 import com.learning.mapper.TenantMapper;

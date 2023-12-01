@@ -1,4 +1,4 @@
-package com.learning.config.tenant;
+package com.learning.config.flyway;
 
 import com.learning.service.TenantDomain;
 import org.flywaydb.core.Flyway;

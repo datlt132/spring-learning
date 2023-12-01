@@ -1,5 +1,6 @@
 package com.learning.service;
 
+import com.learning.base.dto.ServerResponse;
 import com.learning.entity.UserEntity;
 import com.learning.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -17,4 +18,10 @@ public class UserService {
     public List<UserEntity> list() {
         return userRepository.findAll();
     }
+
+    public ServerResponse save(UserEntity user) {
+        return ServerResponse.successWith(userRepository.save(user));
+    }
+
+
 }
