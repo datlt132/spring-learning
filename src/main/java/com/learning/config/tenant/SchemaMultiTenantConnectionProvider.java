@@ -22,7 +22,7 @@ import java.util.Properties;
 @Component
 @RequiredArgsConstructor
 public class SchemaMultiTenantConnectionProvider extends AbstractMultiTenantConnectionProvider {
-    private static final String HIBERNATE_PROPERTIES_PATH = "C:/Users/Admin/IdeaProjects/spring-learning/src/main/resources/application.properties";
+    private static final String HIBERNATE_PROPERTIES_PATH = "src/main/resources/application.properties";
     private static final String DEFAULT_SCHEMA_NAME = "public";
     private final Map<String, ConnectionProvider> connectionProviderMap = new HashMap<>();
 
